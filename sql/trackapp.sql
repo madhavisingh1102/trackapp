@@ -6,6 +6,7 @@ create table user_info (user_id int not null auto_increment,
 						);
 create table user_track_data (id int not null auto_increment,
 							  user_id int not null,
+							  Date date not null,
 							  amount float,
 							  category int,
 							  sub_category int,
