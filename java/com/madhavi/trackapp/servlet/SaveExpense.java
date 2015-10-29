@@ -12,6 +12,7 @@ public class SaveExpense extends HttpServlet{
 		String amount = req.getParameter("amt");
 		String subcategory = req.getParameter("subcat");
 		String currentuser = req.getParameter("curruser");
+		// How to get current user 
 		
 		//boolean done = UserService.addExpense(cat,date,amt,subcat,curruser);
 		
