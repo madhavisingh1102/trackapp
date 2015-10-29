@@ -8,7 +8,24 @@ public void doGet(HttpServletRequest req, HttpServletResponse res)
   {
     //Once user click on register tab, then return form.
     //get all the user details from form.
-    //insert all user data to database user table.
-    //After inserting data in DB return User welcome page.
+    String name= req.getParameter("name");
+    float salary= req.getParameter("sal");
+    String dob = req.getParameter ("dob");//Observed that while putting DATA TYPE as Date it showing error but why?
+    
+//insert all user data to database user table.
+    
+  //    boolean success = NewUser.addUser('name','sal','dob')
+  //  {
+//After inserting data in DB return User welcome page.
+  //   if (success == true)
+  //    {
+  //     return successpage;
+  //    }
+  //    else
+  //    {
+  //      return error page;
+  //    }
+  //  }
+    
   }
 }
