@@ -14,7 +14,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse res)
     
 //insert all user data to database user table.
     
-  //    boolean success = NewUser.addUser('name','sal','dob')
+  //    boolean success = UserService.addUser('name','sal','dob')
   //  {
 //After inserting data in DB return User welcome page.
   //   if (success == true)
