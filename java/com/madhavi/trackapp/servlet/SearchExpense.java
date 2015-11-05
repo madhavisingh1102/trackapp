@@ -6,6 +6,7 @@ import javax.servlet.http.*;
 public class SearchExpense extends HttpServlet{
 	public void doGet(HttpServletRequest req, HttpServletResponse res, Object list)
 	{
+
 		String fromdate = req.getParameter ("fromdate");
 		String todate = req.getParameter ("todate");
 		//list<user> users = UserService.userExpense(fromdate,todate)
