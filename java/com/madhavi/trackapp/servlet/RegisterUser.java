@@ -9,7 +9,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse res)
     //Once user click on register tab, then return form.
     //get all the user details from form.
     String name= req.getParameter("name");
-    float salary= req.getParameter("sal");
+    String salary= req.getParameter("sal");
     String dob = req.getParameter ("dob");//Observed that while putting DATA TYPE as Date it showing error but why?
     
 //insert all user data to database user table.
