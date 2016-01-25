@@ -1,0 +1,11 @@
+public class NumberSwap
+{
+  public static int/void (?) swapNumber (int a,int b)
+  {
+    a=a+b;
+    b=a-b;
+    a=a-b;
+    //return 
+    System.out.println("a +'and' + b") // ??
+  }
+  
