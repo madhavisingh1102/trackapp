@@ -25,3 +25,8 @@ create table user_saving_data (id int not null auto_increment,
 							   description varchar(40),
 							   maturity_date date,
 							   )
+create table user_validation (id int not null auto_increment,
+			      user_name varchar(20),
+			      password varchar (20)
+			      )
+			      
