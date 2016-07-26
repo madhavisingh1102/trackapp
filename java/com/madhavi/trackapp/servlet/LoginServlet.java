@@ -14,13 +14,13 @@ public class LoginServlet extends HttpServlet
 		//get user id and password from database.
 		if (Validate.CheckUser(User,pwd))
 		{
-			RequestDispatcher rd = req.getRequestDispatcher("Welcome");
+			RequestDispatcher rd = req.getRequestDispatcher("Welcome.jsp");
 			rd.forward(req,res);
 		}
 		else
 		{
 			System.out.println("User and Password in incorrect");
-			RequestDispatcher rd = req.getRequestDispatcher("LoginFront.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("UserLoginForm.jsp");
 			rd.include(req,res);
 
 		}
