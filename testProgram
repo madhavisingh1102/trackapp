@@ -1,0 +1,98 @@
+public class Person {
+
+	int age;
+	String name;
+	
+	public String getname()
+	{
+		return name;
+	}
+	
+	public int getAge()
+	{
+		return age;
+	}
+
+	public Person (int age, String name)
+	{
+		this.age = age;
+		this.name = name;
+	}
+	
+	public String toString()
+	{
+		return (age+ " " + name + " ");
+	}
+}
+
+
+public class Employee extends Person
+{
+
+	String department;
+	
+	public String getDepartment()
+	{
+		return department;
+	}
+	
+	public Employee (int age , String name ,String department)
+	{
+		super(age, name);
+		this.department = department;
+	}
+	
+	public String toString()
+	{
+		return (age+" "+ name+" " + department);
+		
+	}
+
+
+}
+
+
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class ListMain {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		List<Person> li = new ArrayList<Person>();
+		li.add(new Person(20,"Loky"));
+		li.add(new Person(21,"Varun"));
+		li.add(new Person(22,"Alok"));
+		li.add(new Person(23,"Shanky"));
+		li.add(new Person(24,"Wardu"));
+		List<Employee> e = new ArrayList<Employee>();
+		e.add(new Employee(20,"Miky","Auth"));
+		e.add(new Employee(21,"Lina","Sonar"));
+		e.add(new Employee(22,"Milky","IMPS"));
+		e.add(new Employee(20,"Lina","AEPS"));
+		e.add(new Employee(24,"lucy","BOM"));
+		li.addAll(e);
+		List<Person> li1 = new ArrayList<Person>(li);
+		li1.add(new Person(30,"Arnav"));
+		li1.add(new Person(31,"PK"));
+		
+		// equals method 
+		//System.out.println(li.equals(e));		
+		//li1.addAll(e);
+		//li.addAll(e1);
+		
+	for (Person pr:li1)
+	{
+		System.out.println(pr);
+	}
+	
+	
+
+
+	}
+	}
+
+
