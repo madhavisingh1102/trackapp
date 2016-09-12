@@ -1,8 +1,13 @@
+import java.util.Date;
 public class expense
 {
   float amount;
-  // how to enter the date. User should get the calender while entering the date.??
-  //foreign key in expense DB?? how to replicate in java??
+  int id;
+  userinfo userid;
+  category categoryid;
+  Date date;
+  // enter date type date with getter and setter
+  //foreign key in DB will be object in model class
   public float getAmount ()
   {
     return (amount);
@@ -11,6 +16,39 @@ public class expense
   {
     this.amount = amount;
   }
+  public int getId()
+  {
+    return id;
+  }
+  public void setId(int id)
+  {
+    this.id = id;
+  }
+  public userinfo getUserid()
+  {
+    return userid;
+  }
+  public void setUserid(int userid)
+  {
+    this.userid = userid;
+  }
+   public userinfo getCategoryid()
+  {
+    return categoryid;
+  }
+  public void setCategoryid(int categoryid)
+  {
+    this.categoryid = categoryid;
+  }
+  public int getDate()
+  {
+    return date;
+  }
+  public void setDate(int date)
+  {
+    this.date = date;
+  }
+  
   
 }
 
