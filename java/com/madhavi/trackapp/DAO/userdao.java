@@ -1,13 +1,22 @@
 import java.sql.DriverManager;
 import java.sql.connection;
 import java.sql.SQLException;
-public class userdao
+import java.io.IOException;
+import java.io.ServletException;
+import java.io.HttpServletRequest;
+import java.io.HttpServletResponse;
+import java.io.HttpServlet;
+
+public class userdao extends HttpServlet
 {
   // connection to database.
   //insert query 
   // return true if inserted
 
 // initialize variables : url,user_name,password.
+
+public boolean registerUser(HttpServletRequest req, HttpServletResponse res) throws IOException,ServletException
+{
   String dburl = "http://localhost:8080";
   String dbname= "trackapp_db";
   String dbpass= "ta@1234";
@@ -50,6 +59,7 @@ try
     System.out.println(e.getMessage());
   }
  }
+}
  
 }
 
