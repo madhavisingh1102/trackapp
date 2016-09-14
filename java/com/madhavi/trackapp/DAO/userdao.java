@@ -10,26 +10,27 @@ import java.sql.SQLException;
 public class userdao 
 //extends HttpServlet
 {
-  // connection to database.
-  //insert query 
-  // return true if inserted
-
-// initialize variables : url,user_name,password.
-
-public boolean addUser(User u)
+ 
+try 
 {
   String dburl = "http://localhost:8080";
   String dbname= "trackapp_db";
   String dbpass= "ta@1234";
-  
-try 
-{
   // loads the driver class (by class loader)??
   class.forName("com.mysql.jdbc.driver")
  
   // opens the connection with database
-  Connection con = DeriverManager.getConnection("http://localhost:8080" ,'trackapp_db', 'ta@1234');
-  
+  Connection con = DriverManager.getConnection("http://localhost:8080" ,'trackapp_db', 'ta@1234');
+}
+ catch (Exception e)
+ {
+  System.out.println(e.getMessage());
+ }
+
+public boolean addUser(User u)
+{
+ try 
+{
   //Execute Query : cteate statement on con object createStatement()
   Statement stmnt = con.createStatement();
   
@@ -48,6 +49,47 @@ try
   System.out.println(e.getMessage());
   return false;
  }
+ 
+ public boolean updateUser (User u)
+ {
+   try
+   {
+   Statement stmnt = con.createStatement();
+   String sql = "update userinfo set email='varun.itbhu30@gmail.com' where name='Madhavi'";
+   
+   stmnt.executeUpdate(sql);
+   return true;
+   }
+   catch (Exception e)
+   {
+     System.out.println(e.getMessage);
+     return false;
+   }
+   
+   public getByEmail(String email)
+   {
+     try
+    {
+     Statement stmnt = con.createStatement();
+     String sql = "select * from userinfo where email='madhavisingh1102@gmail.com'";
+     
+     ResultSet rs = stmnt.executeQuery(sql);
+     userinfo user = new userinfo();
+     
+     while(rs.next())
+     {
+       user.setName(rs.getName());
+       user.setEmail(rs.getEmail());
+       //System.out.println("Welcome " +uname +"Your email is" +uemail);
+      }
+      return user;
+    }
+    catch (Exception e)
+    {
+      System.out.println(e.getMessage());
+    }
+   }
+ ====================================================
  finally 
  {
   try
