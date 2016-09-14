@@ -1,13 +1,14 @@
 import java.sql.DriverManager;
 import java.sql.connection;
 import java.sql.SQLException;
-import java.io.IOException;
-import java.io.ServletException;
-import java.io.HttpServletRequest;
-import java.io.HttpServletResponse;
-import java.io.HttpServlet;
+//import java.io.IOException;
+//import java.io.ServletException;
+//import java.io.HttpServletRequest;
+//import java.io.HttpServletResponse;
+//import java.io.HttpServlet;
 
-public class userdao extends HttpServlet
+public class userdao 
+//extends HttpServlet
 {
   // connection to database.
   //insert query 
@@ -15,7 +16,7 @@ public class userdao extends HttpServlet
 
 // initialize variables : url,user_name,password.
 
-public boolean registerUser(HttpServletRequest req, HttpServletResponse res) throws IOException,ServletException
+public boolean addUser(User u)
 {
   String dburl = "http://localhost:8080";
   String dbname= "trackapp_db";
