@@ -33,9 +33,12 @@ public boolean addUser(User u)
 {
   //Execute Query : cteate statement on con object createStatement()
   Statement stmnt = con.createStatement();
+  userinfo user = new userinfo();
+  uname = user.getName();
+  uemail = user.getEmail();
   
   // store sql query in string type variable sql.
-  String sql = "insert into userinfo (name,email) values ('Madhavi','madhavisingh1102@gmail.com')";
+  String sql = "insert into userinfo (name,email) values ('"+uname+"' , '"+uemail+"')";
   
   // execute query by calling executeUpdate and pass string variable.
   stmnt.executeUpdate(sql);
@@ -52,10 +55,14 @@ public boolean addUser(User u)
  
  public boolean updateUser (User u)
  {
+  // how to get the variable email to update user name variable.
+  userinfo user = new userinfo();
+  uemail = user.setEmail(user.getEmail());
+  uname = user.getName();
    try
    {
    Statement stmnt = con.createStatement();
-   String sql = "update userinfo set email='varun.itbhu30@gmail.com' where name='Madhavi'";
+   String sql = "update userinfo set email='"+uemail+"' where name='"+uname+"';
    
    stmnt.executeUpdate(sql);
    return true;
@@ -70,11 +77,12 @@ public boolean addUser(User u)
    {
      try
     {
+     userinfo user = new userinfo();
+     usremail = user.getEmail();
      Statement stmnt = con.createStatement();
-     String sql = "select * from userinfo where email='madhavisingh1102@gmail.com'";
+     String sql = "select * from userinfo where email='"+usremail+"'';
      
      ResultSet rs = stmnt.executeQuery(sql);
-     userinfo user = new userinfo();
      
      while(rs.next())
      {
