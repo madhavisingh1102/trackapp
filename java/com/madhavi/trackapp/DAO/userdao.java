@@ -11,6 +11,8 @@ public class userdao
 //extends HttpServlet
 {
  
+ //public 0----------------con object to return
+ 
 try 
 {
   String dburl = "http://localhost:8080";
@@ -26,6 +28,18 @@ try
  {
   System.out.println(e.getMessage());
  }
+ finally 
+ {
+  try
+  {
+  stmnt.close();
+  con.close();
+  }
+  catch (Exception e)
+  {
+    System.out.println(e.getMessage());
+  }
+ }
 
 public boolean addUser(User u)
 {
@@ -33,9 +47,8 @@ public boolean addUser(User u)
 {
   //Execute Query : cteate statement on con object createStatement()
   Statement stmnt = con.createStatement();
-  userinfo user = new userinfo();
-  uname = user.getName();
-  uemail = user.getEmail();
+  uname = u.getName();
+  uemail = u.getEmail();
   
   // store sql query in string type variable sql.
   String sql = "insert into userinfo (name,email) values ('"+uname+"' , '"+uemail+"')";
@@ -52,52 +65,6 @@ public boolean addUser(User u)
   System.out.println(e.getMessage());
   return false;
  }
- 
- public boolean updateUser (User u)
- {
-  // how to get the variable email to update user name variable.
-  userinfo user = new userinfo();
-  uemail = user.setEmail(user.getEmail());
-  uname = user.getName();
-   try
-   {
-   Statement stmnt = con.createStatement();
-   String sql = "update userinfo set email='"+uemail+"' where name='"+uname+"';
-   
-   stmnt.executeUpdate(sql);
-   return true;
-   }
-   catch (Exception e)
-   {
-     System.out.println(e.getMessage);
-     return false;
-   }
-   
-   public getByEmail(String email)
-   {
-     try
-    {
-     userinfo user = new userinfo();
-     usremail = user.getEmail();
-     Statement stmnt = con.createStatement();
-     String sql = "select * from userinfo where email='"+usremail+"'';
-     
-     ResultSet rs = stmnt.executeQuery(sql);
-     
-     while(rs.next())
-     {
-       user.setName(rs.getName());
-       user.setEmail(rs.getEmail());
-       //System.out.println("Welcome " +uname +"Your email is" +uemail);
-      }
-      return user;
-    }
-    catch (Exception e)
-    {
-      System.out.println(e.getMessage());
-    }
-   }
- ====================================================
  finally 
  {
   try
@@ -110,9 +77,74 @@ public boolean addUser(User u)
     System.out.println(e.getMessage());
   }
  }
-}
  
-}
+ public boolean updateUser (User u)
+ {
+  // how to get the variable email to update user name variable.
+  uname = u.setName(u.getName());
+  uemail = u.getEmail();
+   try
+   {
+   Statement stmnt = con.createStatement();
+   String sql = "update userinfo set name = '"+uname+"' where uemail='"+uemail+"';
+   
+   stmnt.executeUpdate(sql);
+   return true;
+   }
+   catch (Exception e)
+   {
+     System.out.println(e.getMessage);
+     return false;
+   }
+   finally 
+ {
+  try
+  {
+  stmnt.close();
+  con.close();
+  }
+  catch (Exception e)
+  {
+    System.out.println(e.getMessage());
+  }
+ }
+   
+   public getByEmail(String email)
+   {
+     try
+    {
+     userinfo user = new userinfo();
+     Statement stmnt = con.createStatement();
+     String sql = "select * from userinfo where email='"+email+"'';
+     
+     ResultSet rs = stmnt.executeQuery(sql);
+     
+     while(rs.next())
+     {
+       user.setName(user.getName());
+       user.setEmail(user.getEmail());
+       //System.out.println("Welcome " +uname +"Your email is" +uemail);
+      }
+      return user;
+    }
+    catch (Exception e)
+    {
+      System.out.println(e.getMessage());
+    }
+    finally 
+ {
+  try
+  {
+  stmnt.close();
+  con.close();
+  }
+  catch (Exception e)
+  {
+    System.out.println(e.getMessage());
+  }
+ }
+   }
+
 
   
   
