@@ -77,6 +77,7 @@ public boolean addUser(User u)
     System.out.println(e.getMessage());
   }
  }
+}
  
  public boolean updateUser (User u)
  {
@@ -108,6 +109,7 @@ public boolean addUser(User u)
     System.out.println(e.getMessage());
   }
  }
+}
    
    public getByEmail(String email)
    {
@@ -143,7 +145,8 @@ public boolean addUser(User u)
     System.out.println(e.getMessage());
   }
  }
-   }
+}
+}
 
 
   
